@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="shopApp">
+<head>
+	<title>ShopApp</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/shopapp.css">
+	
+</head>
+<body class="container" ng-controller="shopHomeController as shop">
+
+	<div ng-include src="shop.headerSrc"></div>
+
+	<div ng-view=""></div>
+	
+	<!-- javascript libraries -->
+
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>
+	<script type="text/javascript" src="js/lib/angular-resource.js"></script>
+	<script type="text/javascript" src="js/lib/angular-route.js"></script>
+	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="js/controller/app.js"></script>
+	<script type="text/javascript" src="js/service/services.js"></script>
+	<script type="text/javascript" src="js/cart.js"></script>
+	<script type="text/javascript" src="js/routers/router.js"></script>
+	<script type="text/javascript" 
+        src="js/lib/angular-payments.js">
+	</script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+
+
+</body>
+</html>

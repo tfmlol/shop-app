@@ -1,0 +1,24 @@
+<section class="product-view" role="product-view" ng-controller="shopCartController as cart">
+	<div class="content-wrapper">
+		<div class="row">
+			<div class="col-xs-12 col-sm-3">
+				<div class="content text-center">
+					<h3>YOUR SHOPPING CART</h3>
+					<p>Number items in cart: {{ cart.cart.getTotalCount() }}</p>
+					<p>Cart Total: {{ cart.cart.getTotalPrice() | currency:'$':0  }}</p>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-3">
+				{{ cart.cartProducts }}
+			</div>
+
+
+			
+		</div>
+		<div class="row">
+		<a ng-href="#/checkout" class="btn btn-success btn-lg" type="submit">Checkout</a>
+			
+		</div>
+	</div>
+</section>

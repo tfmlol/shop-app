@@ -1,0 +1,88 @@
+<section class="top-content" role="topbanner">
+	<div class="content-wrapper">
+		<div class="table-view">
+			<div class="table-cell">
+				<div class="content">
+					<h1>Manage your Closet.</h1>
+					<h3>Buy and Sell used fashion items.</h3>
+				</div>
+				<div class="">
+					<form>
+						<div class="form-container">
+							<input type="text" class="form-control" placeholder="Search for a brand or item" ng-model="search">
+							<a class="search-btn"><img src="img/icon-search@2x.png"></a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="secondary-nav" role="sub-nav">
+	<div class="content-wrapper">
+		<ul class="product-nav">
+			<li ng-class="{'focus': category==''}" ng-click="shop.getCategory('')"><a>All</a></li>
+			<li ng-class="{'focus': category=='shoes'}" ng-click="shop.getCategory('shoes')"><a>Shoes</a></li>
+			<li ng-class="{'focus': category=='shirts'}" ng-click="shop.getCategory('shirts')"><a>Shirts</a></li>
+			<li ng-class="{'focus': category=='pants'}" ng-click="shop.getCategory('pants')"
+			><a>Pants</a></li>
+			<li ng-class="{'focus': category=='outerwear'}" ng-click="shop.getCategory('outerwear')"
+			><a>Outerwear</a></li>
+			<li ng-class="{'focus': category=='accessories'}" ng-click="shop.getCategory('accessories')"
+			><a>Accessories</a></li>
+		</ul>
+	</div>
+</section>
+
+<section class="product-view" role="product-view">
+	<div class="content-wrapper">
+		<div class="row">
+			<!-- TODO #3: SHOW PRODUCTS -->
+			<div class="col-xs-12 col-sm-3" 
+				 ng-repeat="product in shop.products | filter: search">
+				<div id="product-card" class="product-card">
+					<div class="product-buy">
+						<div class="table-view">
+							<div class="table-cell" ng-click="shop.cart.addItem(product.id, product.name, product.price, 1, product.quantityInStock)">
+								<i class="fa fa-shopping-cart"></i>
+							</div>
+						</div>
+					</div>
+					<!-- SET PRODUCT IMAGE -->
+					<div class="product-img" style="background:url('{{product.thumb}}');background-size:cover;background-position:center center">
+					</div>
+
+					<div class="product-info">
+						<div class="product-name" ng-controller="shopProductDetailsController as detail">
+							<!-- SET PRODUCT NAME -->
+							<a ng-href="#/products/{{product.id}}" ng-click="detail.getProduct(product.id)">{{product.name}}</a>
+							
+						</div>
+						<div class="product-brand">
+							<!-- SET PRODUCT Description -->
+							<em>{{product.description}}</em>
+						</div>
+						<div class="product-cost">
+							<!-- SET PRODUCT PRICE WITH FILTER -->
+							{{product.price | currency:'$':0}}
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<section>
+
+
+
+<section class="well">
+	<h4> {{ shop.cart.getTotalCount() }} items, Cart Total: {{ shop.cart.getTotalPrice() | currency }} </h4>
+<div ng-repeat="item in shop.cart.items">
+	<div class="product-info">
+	{{ item.name }} x {{ item.quantity }} <button class="btn btn-small" ng-click="shop.cart.removeItem(item.product_id)">Remove from cart</button>
+	</div>
+</div>
+</section>
+

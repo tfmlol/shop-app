@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="shopApp">
+<head>
+	<title>ShopApp</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/shopapp.css">
+	
+</head>
+<body class="container" ng-controller="shopAppController">
+
+	<section class="top-content" role="topbanner">
+		<div class="content-wrapper">
+			<div class="table-view">
+				<div class="table-cell">
+					<div class="content">
+						<h1>Manage your Closet.</h1>
+						<h3>Buy and Sell used fashion items.</h3>
+					</div>
+					<div class="">
+						<form>
+							<div class="form-container">
+								<input type="text" class="form-control" placeholder="Search for a brand or item" ng-model="search">
+								<a class="search-btn"><img src="img/icon-search@2x.png"></a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="secondary-nav" role="sub-nav">
+		<div class="content-wrapper">
+			<ul class="product-nav">
+				<li ng-class="{'focus': category==''}" ng-click=""><a>All</a></li>
+				<li ng-class="{'focus': category=='shoes'}" ng-click=""><a>Shoes</a></li>
+				<li ng-class="{'focus': category=='shirts'}" ng-click=""><a>Shirts</a></li>
+				<li ng-class="{'focus': category=='pants'}" ng-click=""
+				><a>Pants</a></li>
+				<li ng-class="{'focus': category=='outerwear'}" ng-click=""
+				><a>Outerwear</a></li>
+				<li ng-class="{'focus': category=='accessories'}" ng-click=""
+				><a>Accessories</a></li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="product-view" role="product-view">
+		<div class="content-wrapper">
+			<div class="row">
+				<!-- TODO #3: SHOW PRODUCTS -->
+				<div class="col-xs-12 col-sm-3" 
+					 ng-repeat="product in products">
+					<div id="product-card" class="product-card">
+						<div class="product-buy">
+							<div class="table-view">
+								<div class="table-cell" ng-click="">
+									<i class="fa fa-shopping-cart"></i>
+								</div>
+							</div>
+						</div>
+						<!-- SET PRODUCT IMAGE -->
+						<div class="product-img" style="background:url('{{product.thumb}}');background-size:cover;background-position:center center">
+						</div>
+
+						<div class="product-info">
+							<div class="product-name">
+								<!-- SET PRODUCT NAME -->
+								{{product.name}}
+								
+							</div>
+							<div class="product-brand">
+								<!-- SET PRODUCT Description -->
+								<em>{{product.description}}</em>
+							</div>
+							<div class="product-cost">
+								<!-- SET PRODUCT PRICE WITH FILTER -->
+								{{product.price | currency:'$':0}}
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<section>
+	
+	
+	<!-- javascript libraries -->
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>
+	<script type="text/javascript" src="js/lib/angular-resource.js"></script>
+	<script type="text/javascript" src="js/lib/angular-route.js"></script>
+	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="js/controller/app.js"></script>
+	<script type="text/javascript" src="js/service/services.js"></script>
+	<script type="text/javascript" src="js/cart.js"></script>
+	<script type="text/javascript" src="js/routers/router.js"></script>
+
+
+</body>
+</html>
